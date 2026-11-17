@@ -16,7 +16,6 @@
   --cool:#7ec8e3;
   --cool-glow:rgba(126,200,227,.22);
   --green:#3ddc84;
-  --gold:#f4b942;
   --text:#d2cec5;
   --text-dim:#7c7870;
   --border:rgba(255,255,255,.08);
@@ -350,67 +349,43 @@ nav{
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,1,0,1),transform .7s cubic-bezier(.22,1,0,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
-/* ── 5-PILLAR SDET ARCHITECTURE SECTION ── */
-.pillars-grid{
+/* ── ARCHITECTURE SECTION (2-COLUMN VISUAL PIPELINE + 5-PILLAR COVERAGE) ── */
+.arch-grid{
   margin-top:2rem;
   display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:.95rem;
+  grid-template-columns:1.15fr .85fr;
+  gap:1.4rem;
 }
-.pillar-card{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:1.25rem 1.1rem;
-  position:relative;
-  transition:all .3s;
-}
-.pillar-card:hover{
-  border-color:rgba(232,93,58,.45);
-  transform:translateY(-4px);
-}
-.pillar-step{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.5rem;
-  color:var(--rust);
-  line-height:1;
-  margin-bottom:.5rem;
-}
-.pillar-card h4{
-  font-family:'Fraunces',serif;
-  font-size:.96rem;
-  color:var(--cream);
-  margin-bottom:.45rem;
-}
-.pillar-card p{
-  font-size:.71rem;
-  color:var(--text-dim);
-  line-height:1.65;
-  margin-bottom:.75rem;
-}
-.pillar-tools{
-  font-size:.65rem;
-  color:var(--cool);
-  border-top:1px solid var(--border);
-  padding-top:.55rem;
-  line-height:1.5;
-}
-
-.pipeline-wrap{
-  margin-top:1.4rem;
+.graphic-card{
   background:var(--surface);
   border:1px solid var(--border);
   border-radius:16px;
-  padding:1.4rem 1.6rem;
+  padding:1.55rem;
+  position:relative;
+  overflow:hidden;
+  transition:border-color .3s;
 }
-.pipeline-head{
-  display:flex;justify-content:space-between;align-items:center;
-  flex-wrap:wrap;gap:.5rem;margin-bottom:1rem;
+.graphic-card:hover{border-color:rgba(232,93,58,.35)}
+.graphic-card h4{
+  font-family:'Fraunces',serif;
+  font-size:1.05rem;
+  color:var(--cream);
+  margin-bottom:.35rem;
 }
-.pipeline-head h4{font-family:'Fraunces',serif;font-size:1.02rem;color:var(--cream)}
-.pipeline-head span{font-size:.68rem;color:var(--green)}
+.graphic-card p{
+  font-size:.74rem;
+  color:var(--text-dim);
+  margin-bottom:1.1rem;
+  line-height:1.6;
+}
+.perf-bars{display:flex;flex-direction:column;gap:.85rem;margin-top:.5rem}
+.p-bar-item{display:flex;flex-direction:column;gap:.3rem}
+.p-bar-top{display:flex;justify-content:space-between;font-size:.7rem;color:var(--text);gap:.5rem}
+.p-bar-top span:last-child{color:var(--green);white-space:nowrap}
+.p-track{height:6px;background:rgba(255,255,255,.06);border-radius:10px;overflow:hidden}
+.p-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--rust),var(--cool))}
 
-/* ── INTERACTIVE SKILLS (ORDERED: AUTOMATION, API, PERF, SECURITY, MANUAL) ── */
+/* ── INTERACTIVE SKILLS (ORDERED: AUTOMATION, API, PERFORMANCE, SECURITY, MANUAL & CI/CD) ── */
 .skill-tabs{
   display:flex;flex-wrap:wrap;gap:.55rem;
   margin-top:1.7rem;
@@ -658,11 +633,9 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:var(--text-dim);bord
 footer span{color:var(--rust)}
 
 /* ── RESPONSIVE ── */
-@media(max-width:1024px){
-  .pillars-grid{grid-template-columns:repeat(2,1fr)}
-}
 @media(max-width:968px){
-  .hero-grid{grid-template-columns:1fr;gap:2rem;text-align:center}
+  .hero-grid,.arch-grid{grid-template-columns:1fr;gap:2rem}
+  .hero-grid{text-align:center}
   .hero-sub{margin-left:auto;margin-right:auto}
   .hero-pillars,.hero-btns{justify-content:center}
   .terminal-body{text-align:left}
@@ -677,7 +650,7 @@ footer span{color:var(--rust)}
   body{cursor:auto}
 }
 @media(max-width:560px){
-  .pillars-grid,.metrics-grid{grid-template-columns:1fr}
+  .metrics-grid{grid-template-columns:1fr}
   .edu-card{grid-template-columns:1fr;gap:.7rem}
   nav{width:95%;justify-content:space-between}
   .nav-divider{display:none}
@@ -691,11 +664,11 @@ footer span{color:var(--rust)}
 <div class="cursor-dot" id="cursorDot"></div>
 <canvas id="canvas-bg"></canvas>
 
-<!-- NAV WITH SANTHOSH.SDET & FIXED SCROLLSPY -->
+<!-- NAV WITH ARCHITECTURE & SCROLLSPY -->
 <nav id="navbar">
   <a href="#top" class="nav-logo">SANTHOSH<span>.SDET</span></a>
   <div class="nav-divider"></div>
-  <a href="#pillars" class="nav-link" data-section="pillars">SDET Stack</a>
+  <a href="#architecture" class="nav-link" data-section="architecture">Architecture</a>
   <a href="#skills" class="nav-link" data-section="skills">Skills</a>
   <a href="#experience" class="nav-link" data-section="experience">Experience</a>
   <a href="#projects" class="nav-link" data-section="projects">Projects</a>
@@ -709,7 +682,7 @@ footer span{color:var(--rust)}
       <div class="hero-eyebrow"><span class="live-dot"></span> Hyderabad, India · Hexaware Technologies</div>
       <h1>
         Sai Santhosh Pothamshetty
-        <em>Senior SDET — Quality Engineering & Automation</em>
+        <em>SDET | Senior Quality Engineering & Automation</em>
       </h1>
       <p class="hero-sub">5+ years engineering full-stack quality across Banking, E-Commerce, and Healthcare platforms—spanning UI Automation, REST APIs, Performance Testing, Security Scanning, and Functional Validation.</p>
       
@@ -784,99 +757,102 @@ footer span{color:var(--rust)}
   </div>
 </div>
 
-<!-- 5-PILLAR SDET ARCHITECTURE -->
-<section class="section" id="pillars">
+<!-- ARCHITECTURE SECTION (2-COLUMN VISUAL PIPELINE + 5-PILLAR COVERAGE) -->
+<section class="section" id="architecture">
   <div class="reveal">
-    <div class="section-tag">Full-Stack Quality</div>
-    <h2 class="section-h">5-Pillar SDET Architecture</h2>
-    <p class="section-p">Complete release confidence built across five sequential quality layers—from automated UI & API checks to load, security, and exploratory testing.</p>
+    <div class="section-tag">Engineering Blueprint</div>
+    <h2 class="section-h">Test Architecture & Quality Gates</h2>
+    <p class="section-p">End-to-end continuous quality architecture unifying functional automation, API validation, performance testing, security scanning, and Agile QA.</p>
   </div>
 
-  <div class="pillars-grid reveal">
-    <div class="pillar-card">
-      <div class="pillar-step">01</div>
-      <h4>UI Automation</h4>
-      <p>Scalable POM, Hybrid & BDD frameworks built from scratch for cross-browser regression.</p>
-      <div class="pillar-tools">Java · Selenium · Playwright · Cucumber · TestNG</div>
+  <div class="arch-grid reveal">
+    <!-- VECTOR PIPELINE DIAGRAM SVG -->
+    <div class="graphic-card">
+      <h4>Continuous Quality CI/CD Architecture</h4>
+      <p>Multi-layer automated verification triggered across Jenkins & Azure DevOps pipelines before every release.</p>
+      <svg viewBox="0 0 620 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="pipeGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#e85d3a"/>
+            <stop offset="100%" stop-color="#7ec8e3"/>
+          </linearGradient>
+        </defs>
+        <!-- Connecting Lines -->
+        <line x1="120" y1="110" x2="180" y2="110" stroke="url(#pipeGrad)" stroke-width="2" stroke-dasharray="4 3"/>
+        <line x1="310" y1="62" x2="360" y2="38" stroke="#7ec8e3" stroke-width="1.5"/>
+        <line x1="310" y1="95" x2="360" y2="90" stroke="#e85d3a" stroke-width="1.5"/>
+        <line x1="310" y1="125" x2="360" y2="140" stroke="#7ec8e3" stroke-width="1.5"/>
+        <line x1="310" y1="158" x2="360" y2="188" stroke="#3ddc84" stroke-width="1.5"/>
+
+        <line x1="505" y1="38" x2="535" y2="90" stroke="#7ec8e3" stroke-width="1.5"/>
+        <line x1="505" y1="90" x2="535" y2="103" stroke="#e85d3a" stroke-width="1.5"/>
+        <line x1="505" y1="140" x2="535" y2="117" stroke="#7ec8e3" stroke-width="1.5"/>
+        <line x1="505" y1="188" x2="535" y2="130" stroke="#3ddc84" stroke-width="1.5"/>
+
+        <!-- Node 1: Git -->
+        <rect x="8" y="76" width="112" height="68" rx="10" fill="#12121b" stroke="rgba(255,255,255,0.18)"/>
+        <text x="64" y="105" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" font-weight="bold">Git / PR</text>
+        <text x="64" y="123" fill="#7ec8e3" font-family="DM Mono, monospace" font-size="9" text-anchor="middle">Sprint Build</text>
+
+        <!-- Node 2: CI/CD -->
+        <rect x="180" y="76" width="130" height="68" rx="10" fill="#17141d" stroke="#e85d3a"/>
+        <text x="245" y="105" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" font-weight="bold">CI/CD Engine</text>
+        <text x="245" y="123" fill="#e85d3a" font-family="DM Mono, monospace" font-size="9" text-anchor="middle">Jenkins · Azure</text>
+
+        <!-- Layer 1: UI Automation -->
+        <rect x="360" y="14" width="145" height="44" rx="8" fill="#12121b" stroke="#7ec8e3"/>
+        <text x="432" y="33" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="9.5" text-anchor="middle">1. UI + BDD Suites</text>
+        <text x="432" y="47" fill="#7ec8e3" font-family="DM Mono, monospace" font-size="8" text-anchor="middle">Selenium · Playwright</text>
+
+        <!-- Layer 2: API & SQL -->
+        <rect x="360" y="66" width="145" height="44" rx="8" fill="#12121b" stroke="#e85d3a"/>
+        <text x="432" y="85" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="9.5" text-anchor="middle">2. API & SQL Data</text>
+        <text x="432" y="99" fill="#e85d3a" font-family="DM Mono, monospace" font-size="8" text-anchor="middle">Rest Assured · PDFBox</text>
+
+        <!-- Layer 3: Perf & Security -->
+        <rect x="360" y="118" width="145" height="44" rx="8" fill="#12121b" stroke="#7ec8e3"/>
+        <text x="432" y="137" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="9.5" text-anchor="middle">3–4. Perf & Security</text>
+        <text x="432" y="151" fill="#7ec8e3" font-family="DM Mono, monospace" font-size="8" text-anchor="middle">JMeter · OWASP ZAP</text>
+
+        <!-- Layer 4: Manual & UAT -->
+        <rect x="360" y="170" width="145" height="44" rx="8" fill="#12121b" stroke="#3ddc84"/>
+        <text x="432" y="189" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="9.5" text-anchor="middle">5. Manual & UAT</text>
+        <text x="432" y="203" fill="#3ddc84" font-family="DM Mono, monospace" font-size="8" text-anchor="middle">Exploratory · RCA</text>
+
+        <!-- Node 4: Quality Gate -->
+        <rect x="535" y="76" width="77" height="68" rx="10" fill="rgba(61,220,132,0.12)" stroke="#3ddc84"/>
+        <text x="573" y="106" fill="#3ddc84" font-family="DM Mono, monospace" font-size="10.5" text-anchor="middle" font-weight="bold">PASS</text>
+        <text x="573" y="122" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="8.5" text-anchor="middle">Release</text>
+      </svg>
     </div>
-    <div class="pillar-card">
-      <div class="pillar-step">02</div>
-      <h4>API & Data</h4>
-      <p>End-to-end REST microservice assertions, schema checks, SQL reconciliation & PDF audits.</p>
-      <div class="pillar-tools">Rest Assured · Postman · SQL · Apache PDFBox</div>
+
+    <!-- 5-PILLAR SDET COVERAGE BENCHMARKS -->
+    <div class="graphic-card">
+      <h4>5-Pillar SDET Quality Coverage</h4>
+      <p>Balanced engineering metrics across automation, backend APIs, load testing, security, and release sign-off.</p>
+      <div class="perf-bars">
+        <div class="p-bar-item">
+          <div class="p-bar-top"><span>1. UI & BDD Automation (Selenium / Playwright)</span><span>+40% Speed</span></div>
+          <div class="p-track"><div class="p-fill" style="width:95%"></div></div>
+        </div>
+        <div class="p-bar-item">
+          <div class="p-bar-top"><span>2. REST API, SQL & PDF Validation</span><span>-30% Effort</span></div>
+          <div class="p-track"><div class="p-fill" style="width:92%"></div></div>
+        </div>
+        <div class="p-bar-item">
+          <div class="p-bar-top"><span>3. Performance & Load Testing (JMeter)</span><span>99.98% SLA</span></div>
+          <div class="p-track"><div class="p-fill" style="width:90%"></div></div>
+        </div>
+        <div class="p-bar-item">
+          <div class="p-bar-top"><span>4. Security Vulnerability Audits (OWASP ZAP)</span><span>0 Criticals</span></div>
+          <div class="p-track"><div class="p-fill" style="width:100%"></div></div>
+        </div>
+        <div class="p-bar-item">
+          <div class="p-bar-top"><span>5. Manual, Exploratory & Release RCA</span><span>-20% Defects</span></div>
+          <div class="p-track"><div class="p-fill" style="width:94%"></div></div>
+        </div>
+      </div>
     </div>
-    <div class="pillar-card">
-      <div class="pillar-step">03</div>
-      <h4>Performance</h4>
-      <p>Load, stress, and concurrency benchmarking to eliminate latency bottlenecks before peak traffic.</p>
-      <div class="pillar-tools">Apache JMeter · SLA & Throughput Profiling</div>
-    </div>
-    <div class="pillar-card">
-      <div class="pillar-step">04</div>
-      <h4>Security</h4>
-      <p>Automated vulnerability scanning and auth flow verification to harden enterprise apps.</p>
-      <div class="pillar-tools">OWASP ZAP · Vulnerability & Auth Audits</div>
-    </div>
-    <div class="pillar-card">
-      <div class="pillar-step">05</div>
-      <h4>Manual & Agile</h4>
-      <p>Risk-based test design, exploratory testing, root cause analysis (RCA) & sprint sign-offs.</p>
-      <div class="pillar-tools">Jira · Agile Scrum · TDD/BDD · Sanity & Smoke</div>
-    </div>
-  </div>
-
-  <!-- CI/CD QUALITY GATE DIAGRAM -->
-  <div class="pipeline-wrap reveal">
-    <div class="pipeline-head">
-      <h4>Continuous Quality CI/CD Pipeline</h4>
-      <span>Jenkins & Azure DevOps Automated Quality Gates</span>
-    </div>
-    <svg viewBox="0 0 880 120" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="sdetLine" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#e85d3a"/>
-          <stop offset="50%" stop-color="#7ec8e3"/>
-          <stop offset="100%" stop-color="#3ddc84"/>
-        </linearGradient>
-      </defs>
-      <line x1="60" y1="60" x2="820" y2="60" stroke="url(#sdetLine)" stroke-width="2" stroke-dasharray="5 4"/>
-
-      <g transform="translate(10,25)">
-        <rect width="125" height="70" rx="10" fill="#12121c" stroke="#e85d3a"/>
-        <text x="62" y="32" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" font-weight="bold">1. UI + BDD</text>
-        <text x="62" y="50" fill="#7ec8e3" font-family="DM Mono, monospace" font-size="9" text-anchor="middle">Selenium · Playwright</text>
-      </g>
-
-      <g transform="translate(160,25)">
-        <rect width="125" height="70" rx="10" fill="#12121c" stroke="#7ec8e3"/>
-        <text x="62" y="32" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" font-weight="bold">2. API & SQL</text>
-        <text x="62" y="50" fill="#7ec8e3" font-family="DM Mono, monospace" font-size="9" text-anchor="middle">Rest Assured · DB</text>
-      </g>
-
-      <g transform="translate(310,25)">
-        <rect width="125" height="70" rx="10" fill="#12121c" stroke="#e85d3a"/>
-        <text x="62" y="32" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" font-weight="bold">3. Perf Load</text>
-        <text x="62" y="50" fill="#e85d3a" font-family="DM Mono, monospace" font-size="9" text-anchor="middle">Apache JMeter</text>
-      </g>
-
-      <g transform="translate(460,25)">
-        <rect width="125" height="70" rx="10" fill="#12121c" stroke="#7ec8e3"/>
-        <text x="62" y="32" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" font-weight="bold">4. Security</text>
-        <text x="62" y="50" fill="#7ec8e3" font-family="DM Mono, monospace" font-size="9" text-anchor="middle">OWASP ZAP Scan</text>
-      </g>
-
-      <g transform="translate(610,25)">
-        <rect width="125" height="70" rx="10" fill="#12121c" stroke="#e85d3a"/>
-        <text x="62" y="32" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" font-weight="bold">5. Manual QA</text>
-        <text x="62" y="50" fill="#e85d3a" font-family="DM Mono, monospace" font-size="9" text-anchor="middle">Exploratory & UAT</text>
-      </g>
-
-      <g transform="translate(760,25)">
-        <rect width="110" height="70" rx="10" fill="rgba(61,220,132,0.12)" stroke="#3ddc84"/>
-        <text x="55" y="33" fill="#3ddc84" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" font-weight="bold">RELEASE</text>
-        <text x="55" y="50" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="9" text-anchor="middle">Zero-Defect Gate</text>
-      </g>
-    </svg>
   </div>
 </section>
 
@@ -946,8 +922,8 @@ footer span{color:var(--rust)}
         <div class="exp-company-tag">Hexaware Technologies</div>
       </div>
       <div class="exp-body">
-        <div class="exp-role">Senior SDET / QA Automation Engineer</div>
-        <div class="exp-project-tag">Enterprise Test Automation & Next-Gen Quality Engineering</div>
+        <div class="exp-role">Sr. Software Engineer</div>
+        <div class="exp-project-tag">Test Analyst (SDET)</div>
         <ul class="exp-points">
           <li>Architecting modern UI and API automation frameworks leveraging Java, Playwright, Selenium, and Rest Assured.</li>
           <li>Driving continuous testing adoption across CI/CD pipelines and exploring AI-powered test case generation.</li>
@@ -1108,7 +1084,7 @@ footer span{color:var(--rust)}
   <div class="contact-box reveal">
     <div class="section-tag">Connect</div>
     <h2 class="section-h" style="color:var(--cream)">Let's Build Quality<br>At Scale</h2>
-    <p class="section-p">Open to Senior SDET / QA Architect roles, automation consulting, or quality engineering discussions.</p>
+    <p class="section-p">Open to Sr. SDET / Quality Architect roles, automation consulting, or quality engineering discussions.</p>
     <div class="contact-btns">
       <button class="btn btn-rust" onclick="copyEmail()">📋 Copy Email</button>
       <a href="mailto:santhoshpothamshetty@gmail.com" class="btn btn-outline">📧 Send Mail</a>
@@ -1316,7 +1292,7 @@ if(window.matchMedia('(pointer: fine)').matches){
   let mx=0,my=0,cx=0,cy=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;curDot.style.left=mx+'px';curDot.style.top=my+'px'});
   (function anim(){cx+=(mx-cx)*.14;cy+=(my-cy)*.14;cur.style.left=cx+'px';cur.style.top=cy+'px';requestAnimationFrame(anim)})();
-  document.querySelectorAll('a,button,.skill-pill,.proj-card,.metric-box,.pillar-card').forEach(el=>{
+  document.querySelectorAll('a,button,.skill-pill,.proj-card,.metric-box,.graphic-card').forEach(el=>{
     el.addEventListener('mouseenter',()=>cur.classList.add('hover'));
     el.addEventListener('mouseleave',()=>cur.classList.remove('hover'));
   });
