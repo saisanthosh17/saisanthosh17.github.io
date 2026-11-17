@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Sai Santhosh Pothamshetty — Senior QA Automation & Performance Engineer</title>
+<title>Sai Santhosh Pothamshetty — SDET | Senior Quality Engineering & Automation</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,wght@0,400;0,700;1,400;1,600&display=swap" rel="stylesheet"/>
 <style>
 :root {
@@ -16,6 +16,7 @@
   --cool:#7ec8e3;
   --cool-glow:rgba(126,200,227,.22);
   --green:#3ddc84;
+  --gold:#f4b942;
   --text:#d2cec5;
   --text-dim:#7c7870;
   --border:rgba(255,255,255,.08);
@@ -65,7 +66,7 @@ body{
 /* ── CANVAS BG ── */
 #canvas-bg{position:fixed;inset:0;z-index:0;pointer-events:none}
 
-/* ── NAV WITH FIXED SCROLLSPY ── */
+/* ── NAV WITH ACTIVE SCROLLSPY ── */
 nav{
   position:fixed;top:1.25rem;left:50%;
   transform:translateX(-50%);
@@ -114,7 +115,7 @@ nav{
   box-shadow:0 0 16px rgba(232,93,58,.18);
 }
 
-/* ── HERO (REFINED PROPORTIONS) ── */
+/* ── HERO ── */
 .hero{
   position:relative;z-index:1;
   min-height:94vh;
@@ -173,10 +174,25 @@ nav{
   font-weight:300;
   opacity:0;animation:fadeUp .9s .5s forwards;
 }
+.hero-pillars{
+  margin-top:1.2rem;
+  display:flex;flex-wrap:wrap;gap:.45rem;
+  opacity:0;animation:fadeUp .9s .58s forwards;
+}
+.pillar-chip{
+  font-size:.65rem;
+  padding:.25rem .65rem;
+  border-radius:4px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border);
+  color:var(--cream);
+  letter-spacing:.5px;
+}
+.pillar-chip span{color:var(--rust);margin-right:.25rem}
 .hero-btns{
-  margin-top:1.9rem;
+  margin-top:1.8rem;
   display:flex;gap:.8rem;
-  opacity:0;animation:fadeUp .9s .65s forwards;
+  opacity:0;animation:fadeUp .9s .68s forwards;
   flex-wrap:wrap;
 }
 @keyframes fadeUp{
@@ -210,18 +226,19 @@ nav{
   padding:.6rem .95rem;
   display:flex;align-items:center;justify-content:space-between;
   border-bottom:1px solid var(--border);
-  gap:.5rem;
+  gap:.4rem;
+  flex-wrap:wrap;
 }
 .term-dots{display:flex;gap:.38rem}
 .term-dots span{width:9px;height:9px;border-radius:50%}
 .term-dots span:nth-child(1){background:#ff5f56}
 .term-dots span:nth-child(2){background:#ffbd2e}
 .term-dots span:nth-child(3){background:#27c93f}
-.term-tabs{display:flex;gap:.3rem}
+.term-tabs{display:flex;gap:.28rem;flex-wrap:wrap}
 .term-tab{
   font-family:'DM Mono',monospace;
-  font-size:.62rem;
-  padding:.2rem .5rem;
+  font-size:.61rem;
+  padding:.2rem .48rem;
   border-radius:4px;
   background:transparent;
   border:1px solid transparent;
@@ -239,7 +256,7 @@ nav{
   font-size:.72rem;
   line-height:1.8;
   color:#b8b4aa;
-  min-height:210px;
+  min-height:215px;
 }
 .t-cmd{color:var(--cool)}
 .t-pass{color:var(--green)}
@@ -328,46 +345,72 @@ nav{
   letter-spacing:.8px;color:var(--cream);
   margin-bottom:.6rem;
 }
-.section-p{font-size:.8rem;color:var(--text-dim);max-width:560px;line-height:1.75;font-weight:300}
+.section-p{font-size:.8rem;color:var(--text-dim);max-width:580px;line-height:1.75;font-weight:300}
 
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,1,0,1),transform .7s cubic-bezier(.22,1,0,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
-/* ── ARCHITECTURE & PERFORMANCE GRAPHIC SHOWCASE ── */
-.arch-grid{
+/* ── 5-PILLAR SDET ARCHITECTURE SECTION ── */
+.pillars-grid{
   margin-top:2rem;
   display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:1.4rem;
+  grid-template-columns:repeat(5,1fr);
+  gap:.95rem;
 }
-.graphic-card{
+.pillar-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:1.25rem 1.1rem;
+  position:relative;
+  transition:all .3s;
+}
+.pillar-card:hover{
+  border-color:rgba(232,93,58,.45);
+  transform:translateY(-4px);
+}
+.pillar-step{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.5rem;
+  color:var(--rust);
+  line-height:1;
+  margin-bottom:.5rem;
+}
+.pillar-card h4{
+  font-family:'Fraunces',serif;
+  font-size:.96rem;
+  color:var(--cream);
+  margin-bottom:.45rem;
+}
+.pillar-card p{
+  font-size:.71rem;
+  color:var(--text-dim);
+  line-height:1.65;
+  margin-bottom:.75rem;
+}
+.pillar-tools{
+  font-size:.65rem;
+  color:var(--cool);
+  border-top:1px solid var(--border);
+  padding-top:.55rem;
+  line-height:1.5;
+}
+
+.pipeline-wrap{
+  margin-top:1.4rem;
   background:var(--surface);
   border:1px solid var(--border);
   border-radius:16px;
-  padding:1.5rem;
-  position:relative;
-  overflow:hidden;
+  padding:1.4rem 1.6rem;
 }
-.graphic-card h4{
-  font-family:'Fraunces',serif;
-  font-size:1.05rem;
-  color:var(--cream);
-  margin-bottom:.35rem;
+.pipeline-head{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:.5rem;margin-bottom:1rem;
 }
-.graphic-card p{
-  font-size:.74rem;
-  color:var(--text-dim);
-  margin-bottom:1.1rem;
-  line-height:1.6;
-}
-.perf-bars{display:flex;flex-direction:column;gap:.85rem;margin-top:.5rem}
-.p-bar-item{display:flex;flex-direction:column;gap:.3rem}
-.p-bar-top{display:flex;justify-content:space-between;font-size:.7rem;color:var(--text)}
-.p-bar-top span:last-child{color:var(--green)}
-.p-track{height:6px;background:rgba(255,255,255,.06);border-radius:10px;overflow:hidden}
-.p-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--rust),var(--cool))}
+.pipeline-head h4{font-family:'Fraunces',serif;font-size:1.02rem;color:var(--cream)}
+.pipeline-head span{font-size:.68rem;color:var(--green)}
 
-/* ── INTERACTIVE SKILLS ── */
+/* ── INTERACTIVE SKILLS (ORDERED: AUTOMATION, API, PERF, SECURITY, MANUAL) ── */
 .skill-tabs{
   display:flex;flex-wrap:wrap;gap:.55rem;
   margin-top:1.7rem;
@@ -615,11 +658,13 @@ footer{text-align:center;padding:2rem;font-size:.7rem;color:var(--text-dim);bord
 footer span{color:var(--rust)}
 
 /* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .pillars-grid{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:968px){
-  .hero-grid,.arch-grid{grid-template-columns:1fr;gap:2rem}
-  .hero-grid{text-align:center}
+  .hero-grid{grid-template-columns:1fr;gap:2rem;text-align:center}
   .hero-sub{margin-left:auto;margin-right:auto}
-  .hero-btns{justify-content:center}
+  .hero-pillars,.hero-btns{justify-content:center}
   .terminal-body{text-align:left}
   .metrics-grid{grid-template-columns:repeat(2,1fr)}
   .proj-grid{grid-template-columns:1fr}
@@ -632,7 +677,7 @@ footer span{color:var(--rust)}
   body{cursor:auto}
 }
 @media(max-width:560px){
-  .metrics-grid{grid-template-columns:1fr}
+  .pillars-grid,.metrics-grid{grid-template-columns:1fr}
   .edu-card{grid-template-columns:1fr;gap:.7rem}
   nav{width:95%;justify-content:space-between}
   .nav-divider{display:none}
@@ -646,11 +691,11 @@ footer span{color:var(--rust)}
 <div class="cursor-dot" id="cursorDot"></div>
 <canvas id="canvas-bg"></canvas>
 
-<!-- NAV WITH SANTHOSH.QA & FIXED SCROLLSPY -->
+<!-- NAV WITH SANTHOSH.SDET & FIXED SCROLLSPY -->
 <nav id="navbar">
-  <a href="#top" class="nav-logo">SANTHOSH<span>.QA</span></a>
+  <a href="#top" class="nav-logo">SANTHOSH<span>.SDET</span></a>
   <div class="nav-divider"></div>
-  <a href="#architecture" class="nav-link" data-section="architecture">Architecture</a>
+  <a href="#pillars" class="nav-link" data-section="pillars">SDET Stack</a>
   <a href="#skills" class="nav-link" data-section="skills">Skills</a>
   <a href="#experience" class="nav-link" data-section="experience">Experience</a>
   <a href="#projects" class="nav-link" data-section="projects">Projects</a>
@@ -664,9 +709,19 @@ footer span{color:var(--rust)}
       <div class="hero-eyebrow"><span class="live-dot"></span> Hyderabad, India · Hexaware Technologies</div>
       <h1>
         Sai Santhosh Pothamshetty
-        <em>Senior QA Automation & Performance Engineer</em>
+        <em>Senior SDET — Quality Engineering & Automation</em>
       </h1>
-      <p class="hero-sub">Architecting resilient UI, API, and JMeter performance testing frameworks across Banking, E-Commerce, and Healthcare platforms—turning complex releases into high-confidence deployments.</p>
+      <p class="hero-sub">5+ years engineering full-stack quality across Banking, E-Commerce, and Healthcare platforms—spanning UI Automation, REST APIs, Performance Testing, Security Scanning, and Functional Validation.</p>
+      
+      <!-- 5 PILLARS IN EXACT ORDER -->
+      <div class="hero-pillars">
+        <div class="pillar-chip"><span>01</span>Automation</div>
+        <div class="pillar-chip"><span>02</span>API & SQL</div>
+        <div class="pillar-chip"><span>03</span>Performance</div>
+        <div class="pillar-chip"><span>04</span>Security</div>
+        <div class="pillar-chip"><span>05</span>Manual & Agile</div>
+      </div>
+
       <div class="hero-btns">
         <a href="#projects" class="btn btn-rust">Explore Case Studies ↓</a>
         <a href="https://github.com/saisanthosh17" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub ↗</a>
@@ -674,24 +729,25 @@ footer span{color:var(--rust)}
       </div>
     </div>
 
-    <!-- INTERACTIVE QA TERMINAL -->
+    <!-- INTERACTIVE SDET TERMINAL -->
     <div class="terminal-card">
       <div class="terminal-header">
         <div class="term-dots"><span></span><span></span><span></span></div>
         <div class="term-tabs">
-          <button class="term-tab active" onclick="switchTerm('ui',this)">UI + BDD</button>
-          <button class="term-tab" onclick="switchTerm('api',this)">REST API</button>
-          <button class="term-tab" onclick="switchTerm('perf',this)">JMeter + ZAP</button>
+          <button class="term-tab active" onclick="switchTerm('auto',this)">Automation</button>
+          <button class="term-tab" onclick="switchTerm('api',this)">API & DB</button>
+          <button class="term-tab" onclick="switchTerm('perf',this)">Perf & Sec</button>
+          <button class="term-tab" onclick="switchTerm('manual',this)">QA Release</button>
         </div>
       </div>
       <div class="terminal-body" id="termBody">
         <div><span class="t-cmd">$ mvn clean test -Dcucumber.filter.tags="@Regression"</span></div>
-        <div class="t-dim">[INFO] Launching Hybrid POM + Cucumber BDD Framework...</div>
+        <div class="t-dim">[INFO] Initializing Hybrid POM + Cucumber BDD Framework...</div>
         <div><span class="t-pass">✔</span> HSBC Loan Recovery E2E <span class="t-dim">(Selenium + Java)</span></div>
-        <div><span class="t-pass">✔</span> Cross-Browser Parallel Suite <span class="t-dim">(Playwright)</span></div>
+        <div><span class="t-pass">✔</span> Modern Cross-Browser Suite <span class="t-dim">(Playwright)</span></div>
         <div><span class="t-pass">✔</span> Dynamic PDF Statement Audit <span class="t-dim">(Apache PDFBox)</span></div>
         <div style="margin-top:.65rem;border-top:1px solid rgba(255,255,255,.08);padding-top:.6rem">
-          <span class="t-warn">BUILD SUCCESS</span> · Pass Rate: <span class="t-pass">100%</span> · CI: <span class="t-cmd">Azure DevOps</span> <span class="t-cursor"></span>
+          <span class="t-warn">BUILD SUCCESS</span> · Execution Speed: <span class="t-pass">+40%</span> · CI: <span class="t-cmd">Azure DevOps</span> <span class="t-cursor"></span>
         </div>
       </div>
     </div>
@@ -703,7 +759,7 @@ footer span{color:var(--rust)}
   <div class="metrics-grid">
     <div class="metric-box">
       <div class="metric-num"><span class="counter" data-target="5">0</span><span>+</span></div>
-      <div class="metric-label">Years in QA Automation & Performance Testing</div>
+      <div class="metric-label">Years Full-Stack SDET & Quality Engineering Experience</div>
     </div>
     <div class="metric-box">
       <div class="metric-num"><span class="counter" data-target="40">0</span><span>%</span></div>
@@ -720,141 +776,158 @@ footer span{color:var(--rust)}
   </div>
 </div>
 
-<!-- MARQUEE -->
+<!-- MARQUEE (EXACT ORDER) -->
 <div class="marquee-wrap">
   <div class="marquee">
-    <span>Java <span class="sep">✦</span></span><span>Selenium WebDriver <span class="sep">✦</span></span><span>Playwright <span class="sep">✦</span></span><span>Cucumber BDD <span class="sep">✦</span></span><span>TestNG <span class="sep">✦</span></span><span>Rest Assured <span class="sep">✦</span></span><span>Apache JMeter <span class="sep">✦</span></span><span>OWASP ZAP <span class="sep">✦</span></span><span>Jenkins <span class="sep">✦</span></span><span>Azure DevOps <span class="sep">✦</span></span><span>SQL Validation <span class="sep">✦</span></span><span>AI-Powered Testing <span class="sep">✦</span></span>
-    <span>Java <span class="sep">✦</span></span><span>Selenium WebDriver <span class="sep">✦</span></span><span>Playwright <span class="sep">✦</span></span><span>Cucumber BDD <span class="sep">✦</span></span><span>TestNG <span class="sep">✦</span></span><span>Rest Assured <span class="sep">✦</span></span><span>Apache JMeter <span class="sep">✦</span></span><span>OWASP ZAP <span class="sep">✦</span></span><span>Jenkins <span class="sep">✦</span></span><span>Azure DevOps <span class="sep">✦</span></span><span>SQL Validation <span class="sep">✦</span></span><span>AI-Powered Testing <span class="sep">✦</span></span>
+    <span>Java <span class="sep">✦</span></span><span>Selenium WebDriver <span class="sep">✦</span></span><span>Playwright <span class="sep">✦</span></span><span>Cucumber BDD <span class="sep">✦</span></span><span>TestNG <span class="sep">✦</span></span><span>Rest Assured <span class="sep">✦</span></span><span>Postman <span class="sep">✦</span></span><span>SQL Validation <span class="sep">✦</span></span><span>Apache JMeter <span class="sep">✦</span></span><span>OWASP ZAP <span class="sep">✦</span></span><span>Jenkins & Azure DevOps <span class="sep">✦</span></span><span>Agile STLC & RCA <span class="sep">✦</span></span>
+    <span>Java <span class="sep">✦</span></span><span>Selenium WebDriver <span class="sep">✦</span></span><span>Playwright <span class="sep">✦</span></span><span>Cucumber BDD <span class="sep">✦</span></span><span>TestNG <span class="sep">✦</span></span><span>Rest Assured <span class="sep">✦</span></span><span>Postman <span class="sep">✦</span></span><span>SQL Validation <span class="sep">✦</span></span><span>Apache JMeter <span class="sep">✦</span></span><span>OWASP ZAP <span class="sep">✦</span></span><span>Jenkins & Azure DevOps <span class="sep">✦</span></span><span>Agile STLC & RCA <span class="sep">✦</span></span>
   </div>
 </div>
 
-<!-- ARCHITECTURE & PERFORMANCE TELEMETRY GRAPHICS -->
-<section class="section" id="architecture">
+<!-- 5-PILLAR SDET ARCHITECTURE -->
+<section class="section" id="pillars">
   <div class="reveal">
-    <div class="section-tag">Engineering Blueprint</div>
-    <h2 class="section-h">Automation & Performance Pipeline</h2>
-    <p class="section-p">End-to-end continuous quality architecture integrating functional UI/API suites with Apache JMeter load testing and OWASP ZAP security gates.</p>
+    <div class="section-tag">Full-Stack Quality</div>
+    <h2 class="section-h">5-Pillar SDET Architecture</h2>
+    <p class="section-p">Complete release confidence built across five sequential quality layers—from automated UI & API checks to load, security, and exploratory testing.</p>
   </div>
 
-  <div class="arch-grid reveal">
-    <!-- VECTOR PIPELINE DIAGRAM SVG -->
-    <div class="graphic-card">
-      <h4>Continuous Quality CI/CD Architecture</h4>
-      <p>Automated multi-layer test execution triggered on every code commit across Jenkins & Azure DevOps.</p>
-      <svg viewBox="0 0 620 210" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="pipeGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#e85d3a"/>
-            <stop offset="100%" stop-color="#7ec8e3"/>
-          </linearGradient>
-        </defs>
-        <!-- Connecting Lines -->
-        <line x1="125" y1="105" x2="185" y2="105" stroke="url(#pipeGrad)" stroke-width="2" stroke-dasharray="4 3"/>
-        <line x1="315" y1="60" x2="365" y2="42" stroke="#7ec8e3" stroke-width="1.5"/>
-        <line x1="315" y1="105" x2="365" y2="105" stroke="#e85d3a" stroke-width="1.5"/>
-        <line x1="315" y1="150" x2="365" y2="168" stroke="#3ddc84" stroke-width="1.5"/>
-        <line x1="505" y1="42" x2="535" y2="85" stroke="#7ec8e3" stroke-width="1.5"/>
-        <line x1="505" y1="105" x2="535" y2="105" stroke="#e85d3a" stroke-width="1.5"/>
-        <line x1="505" y1="168" x2="535" y2="125" stroke="#3ddc84" stroke-width="1.5"/>
-
-        <!-- Node 1: Git -->
-        <rect x="10" y="72" width="115" height="66" rx="10" fill="#12121b" stroke="rgba(255,255,255,0.18)"/>
-        <text x="67" y="100" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" font-weight="bold">Git / PR</text>
-        <text x="67" y="118" fill="#7ec8e3" font-family="DM Mono, monospace" font-size="9" text-anchor="middle">Code Trigger</text>
-
-        <!-- Node 2: CI/CD -->
-        <rect x="185" y="72" width="130" height="66" rx="10" fill="#17141d" stroke="#e85d3a"/>
-        <text x="250" y="100" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" font-weight="bold">CI/CD Engine</text>
-        <text x="250" y="118" fill="#e85d3a" font-family="DM Mono, monospace" font-size="9" text-anchor="middle">Jenkins · Azure</text>
-
-        <!-- Node 3A: UI & BDD -->
-        <rect x="365" y="16" width="140" height="50" rx="8" fill="#12121b" stroke="#7ec8e3"/>
-        <text x="435" y="38" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="10" text-anchor="middle">UI + BDD Suites</text>
-        <text x="435" y="53" fill="#7ec8e3" font-family="DM Mono, monospace" font-size="8.5" text-anchor="middle">Selenium · Playwright</text>
-
-        <!-- Node 3B: API & SQL -->
-        <rect x="365" y="80" width="140" height="50" rx="8" fill="#12121b" stroke="#e85d3a"/>
-        <text x="435" y="102" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="10" text-anchor="middle">API & DB Layer</text>
-        <text x="435" y="117" fill="#e85d3a" font-family="DM Mono, monospace" font-size="8.5" text-anchor="middle">Rest Assured · SQL</text>
-
-        <!-- Node 3C: Perf & Security -->
-        <rect x="365" y="144" width="140" height="50" rx="8" fill="#12121b" stroke="#3ddc84"/>
-        <text x="435" y="166" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="10" text-anchor="middle">Perf & Security</text>
-        <text x="435" y="181" fill="#3ddc84" font-family="DM Mono, monospace" font-size="8.5" text-anchor="middle">JMeter · OWASP ZAP</text>
-
-        <!-- Node 4: Quality Gate -->
-        <rect x="535" y="72" width="75" height="66" rx="10" fill="rgba(61,220,132,0.12)" stroke="#3ddc84"/>
-        <text x="572" y="101" fill="#3ddc84" font-family="DM Mono, monospace" font-size="10" text-anchor="middle" font-weight="bold">PASS</text>
-        <text x="572" y="117" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="8.5" text-anchor="middle">Deploy</text>
-      </svg>
+  <div class="pillars-grid reveal">
+    <div class="pillar-card">
+      <div class="pillar-step">01</div>
+      <h4>UI Automation</h4>
+      <p>Scalable POM, Hybrid & BDD frameworks built from scratch for cross-browser regression.</p>
+      <div class="pillar-tools">Java · Selenium · Playwright · Cucumber · TestNG</div>
     </div>
-
-    <!-- PERFORMANCE & SECURITY BENCHMARK CARD -->
-    <div class="graphic-card">
-      <h4>Performance & Security Benchmarks</h4>
-      <p>Load, stress, and vulnerability validation metrics engineered with Apache JMeter & OWASP ZAP.</p>
-      <div class="perf-bars">
-        <div class="p-bar-item">
-          <div class="p-bar-top"><span>JMeter Load Concurrency (500+ VUs)</span><span>99.98% Uptime</span></div>
-          <div class="p-track"><div class="p-fill" style="width:96%"></div></div>
-        </div>
-        <div class="p-bar-item">
-          <div class="p-bar-top"><span>API Latency SLA (< 250ms Avg)</span><span>40% Faster</span></div>
-          <div class="p-track"><div class="p-fill" style="width:88%"></div></div>
-        </div>
-        <div class="p-bar-item">
-          <div class="p-bar-top"><span>OWASP ZAP Security Compliance</span><span>0 Critical Alerts</span></div>
-          <div class="p-track"><div class="p-fill" style="width:100%"></div></div>
-        </div>
-        <div class="p-bar-item">
-          <div class="p-bar-top"><span>Automated Regression Coverage</span><span>95%+ Core Flows</span></div>
-          <div class="p-track"><div class="p-fill" style="width:94%"></div></div>
-        </div>
-      </div>
+    <div class="pillar-card">
+      <div class="pillar-step">02</div>
+      <h4>API & Data</h4>
+      <p>End-to-end REST microservice assertions, schema checks, SQL reconciliation & PDF audits.</p>
+      <div class="pillar-tools">Rest Assured · Postman · SQL · Apache PDFBox</div>
     </div>
+    <div class="pillar-card">
+      <div class="pillar-step">03</div>
+      <h4>Performance</h4>
+      <p>Load, stress, and concurrency benchmarking to eliminate latency bottlenecks before peak traffic.</p>
+      <div class="pillar-tools">Apache JMeter · SLA & Throughput Profiling</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-step">04</div>
+      <h4>Security</h4>
+      <p>Automated vulnerability scanning and auth flow verification to harden enterprise apps.</p>
+      <div class="pillar-tools">OWASP ZAP · Vulnerability & Auth Audits</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-step">05</div>
+      <h4>Manual & Agile</h4>
+      <p>Risk-based test design, exploratory testing, root cause analysis (RCA) & sprint sign-offs.</p>
+      <div class="pillar-tools">Jira · Agile Scrum · TDD/BDD · Sanity & Smoke</div>
+    </div>
+  </div>
+
+  <!-- CI/CD QUALITY GATE DIAGRAM -->
+  <div class="pipeline-wrap reveal">
+    <div class="pipeline-head">
+      <h4>Continuous Quality CI/CD Pipeline</h4>
+      <span>Jenkins & Azure DevOps Automated Quality Gates</span>
+    </div>
+    <svg viewBox="0 0 880 120" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sdetLine" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#e85d3a"/>
+          <stop offset="50%" stop-color="#7ec8e3"/>
+          <stop offset="100%" stop-color="#3ddc84"/>
+        </linearGradient>
+      </defs>
+      <line x1="60" y1="60" x2="820" y2="60" stroke="url(#sdetLine)" stroke-width="2" stroke-dasharray="5 4"/>
+
+      <g transform="translate(10,25)">
+        <rect width="125" height="70" rx="10" fill="#12121c" stroke="#e85d3a"/>
+        <text x="62" y="32" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" font-weight="bold">1. UI + BDD</text>
+        <text x="62" y="50" fill="#7ec8e3" font-family="DM Mono, monospace" font-size="9" text-anchor="middle">Selenium · Playwright</text>
+      </g>
+
+      <g transform="translate(160,25)">
+        <rect width="125" height="70" rx="10" fill="#12121c" stroke="#7ec8e3"/>
+        <text x="62" y="32" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" font-weight="bold">2. API & SQL</text>
+        <text x="62" y="50" fill="#7ec8e3" font-family="DM Mono, monospace" font-size="9" text-anchor="middle">Rest Assured · DB</text>
+      </g>
+
+      <g transform="translate(310,25)">
+        <rect width="125" height="70" rx="10" fill="#12121c" stroke="#e85d3a"/>
+        <text x="62" y="32" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" font-weight="bold">3. Perf Load</text>
+        <text x="62" y="50" fill="#e85d3a" font-family="DM Mono, monospace" font-size="9" text-anchor="middle">Apache JMeter</text>
+      </g>
+
+      <g transform="translate(460,25)">
+        <rect width="125" height="70" rx="10" fill="#12121c" stroke="#7ec8e3"/>
+        <text x="62" y="32" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" font-weight="bold">4. Security</text>
+        <text x="62" y="50" fill="#7ec8e3" font-family="DM Mono, monospace" font-size="9" text-anchor="middle">OWASP ZAP Scan</text>
+      </g>
+
+      <g transform="translate(610,25)">
+        <rect width="125" height="70" rx="10" fill="#12121c" stroke="#e85d3a"/>
+        <text x="62" y="32" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" font-weight="bold">5. Manual QA</text>
+        <text x="62" y="50" fill="#e85d3a" font-family="DM Mono, monospace" font-size="9" text-anchor="middle">Exploratory & UAT</text>
+      </g>
+
+      <g transform="translate(760,25)">
+        <rect width="110" height="70" rx="10" fill="rgba(61,220,132,0.12)" stroke="#3ddc84"/>
+        <text x="55" y="33" fill="#3ddc84" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" font-weight="bold">RELEASE</text>
+        <text x="55" y="50" fill="#f4f0e8" font-family="DM Mono, monospace" font-size="9" text-anchor="middle">Zero-Defect Gate</text>
+      </g>
+    </svg>
   </div>
 </section>
 
-<!-- SKILLS -->
+<!-- SKILLS (ORDERED: AUTOMATION, API, PERFORMANCE, SECURITY, MANUAL & CI/CD) -->
 <section class="section" id="skills">
   <div class="reveal">
     <div class="section-tag">Expertise</div>
     <h2 class="section-h">Technical Arsenal</h2>
-    <p class="section-p">Filter by category to explore my full-stack test automation, API, performance, and CI/CD toolkit.</p>
+    <p class="section-p">Organized across every SDET discipline—from test automation frameworks to API, performance, security, and Agile QA.</p>
   </div>
 
   <div class="skill-tabs reveal">
-    <button class="skill-tab active" data-filter="all">All Skills (23)</button>
-    <button class="skill-tab" data-filter="ui">UI & Frameworks</button>
-    <button class="skill-tab" data-filter="api">API & Data</button>
-    <button class="skill-tab" data-filter="perf">Performance, Security & AI</button>
-    <button class="skill-tab" data-filter="cicd">CI/CD & DevOps</button>
+    <button class="skill-tab active" data-filter="all">All Skills (25)</button>
+    <button class="skill-tab" data-filter="auto">1. Automation</button>
+    <button class="skill-tab" data-filter="api">2. API & Database</button>
+    <button class="skill-tab" data-filter="perf">3. Performance</button>
+    <button class="skill-tab" data-filter="sec">4. Security</button>
+    <button class="skill-tab" data-filter="manual">5. Manual & CI/CD</button>
   </div>
 
   <div class="skills-grid reveal" id="skillsGrid">
-    <div class="skill-pill" data-cat="ui">Java</div>
-    <div class="skill-pill" data-cat="ui">Selenium WebDriver</div>
-    <div class="skill-pill" data-cat="ui">Playwright</div>
-    <div class="skill-pill" data-cat="ui">Cucumber (BDD)</div>
-    <div class="skill-pill" data-cat="ui">TestNG</div>
-    <div class="skill-pill" data-cat="ui">JUnit</div>
-    <div class="skill-pill" data-cat="ui">Page Object Model (POM)</div>
-    <div class="skill-pill" data-cat="ui">Hybrid & Data-Driven Frameworks</div>
+    <!-- 1. Automation -->
+    <div class="skill-pill" data-cat="auto">Java</div>
+    <div class="skill-pill" data-cat="auto">Selenium WebDriver</div>
+    <div class="skill-pill" data-cat="auto">Playwright</div>
+    <div class="skill-pill" data-cat="auto">Cucumber (BDD)</div>
+    <div class="skill-pill" data-cat="auto">TestNG</div>
+    <div class="skill-pill" data-cat="auto">JUnit</div>
+    <div class="skill-pill" data-cat="auto">Page Object Model (POM)</div>
+    <div class="skill-pill" data-cat="auto">Hybrid & Data-Driven Frameworks</div>
+    <div class="skill-pill" data-cat="auto">AI-Powered Test Generation</div>
+    <!-- 2. API & Database -->
     <div class="skill-pill" data-cat="api">Rest Assured</div>
     <div class="skill-pill" data-cat="api">Postman</div>
     <div class="skill-pill" data-cat="api">REST APIs</div>
-    <div class="skill-pill" data-cat="api">SQL Validation</div>
+    <div class="skill-pill" data-cat="api">SQL Database Validation</div>
     <div class="skill-pill" data-cat="api">Apache PDFBox</div>
-    <div class="skill-pill" data-cat="perf">Apache JMeter (Load & Stress)</div>
-    <div class="skill-pill" data-cat="perf">OWASP ZAP Security Testing</div>
-    <div class="skill-pill" data-cat="perf">AI-Powered Software Testing</div>
-    <div class="skill-pill" data-cat="cicd">Jenkins</div>
-    <div class="skill-pill" data-cat="cicd">Azure DevOps</div>
-    <div class="skill-pill" data-cat="cicd">Git / GitHub</div>
-    <div class="skill-pill" data-cat="cicd">Jira</div>
-    <div class="skill-pill" data-cat="cicd">IntelliJ IDEA</div>
-    <div class="skill-pill" data-cat="cicd">Eclipse & VS Code</div>
-    <div class="skill-pill" data-cat="cicd">Agile / Scrum (TDD & BDD)</div>
+    <!-- 3. Performance -->
+    <div class="skill-pill" data-cat="perf">Apache JMeter</div>
+    <div class="skill-pill" data-cat="perf">Load & Stress Testing</div>
+    <div class="skill-pill" data-cat="perf">Scalability & Latency Profiling</div>
+    <!-- 4. Security -->
+    <div class="skill-pill" data-cat="sec">OWASP ZAP</div>
+    <div class="skill-pill" data-cat="sec">Vulnerability & Auth Testing</div>
+    <!-- 5. Manual & CI/CD -->
+    <div class="skill-pill" data-cat="manual">Functional, Smoke & Regression</div>
+    <div class="skill-pill" data-cat="manual">Root Cause Analysis (RCA)</div>
+    <div class="skill-pill" data-cat="manual">Agile / Scrum (TDD & BDD)</div>
+    <div class="skill-pill" data-cat="manual">Jenkins & Azure DevOps</div>
+    <div class="skill-pill" data-cat="manual">Jira & Git / GitHub</div>
+    <div class="skill-pill" data-cat="manual">IntelliJ, Eclipse & VS Code</div>
   </div>
 </section>
 
@@ -863,7 +936,7 @@ footer span{color:var(--rust)}
   <div class="reveal">
     <div class="section-tag">Career Trajectory</div>
     <h2 class="section-h">Work Experience</h2>
-    <p class="section-p">5+ years leading module-level QA strategy and building automation & performance frameworks from scratch.</p>
+    <p class="section-p">5+ years leading module-level QA strategy and building automation, API, performance, and security suites from scratch.</p>
   </div>
 
   <div class="exp-list">
@@ -873,8 +946,8 @@ footer span{color:var(--rust)}
         <div class="exp-company-tag">Hexaware Technologies</div>
       </div>
       <div class="exp-body">
-        <div class="exp-role">Senior QA Automation Engineer</div>
-        <div class="exp-project-tag">Enterprise Automation & Next-Gen Testing</div>
+        <div class="exp-role">Senior SDET / QA Automation Engineer</div>
+        <div class="exp-project-tag">Enterprise Test Automation & Next-Gen Quality Engineering</div>
         <ul class="exp-points">
           <li>Architecting modern UI and API automation frameworks leveraging Java, Playwright, Selenium, and Rest Assured.</li>
           <li>Driving continuous testing adoption across CI/CD pipelines and exploring AI-powered test case generation.</li>
@@ -920,10 +993,10 @@ footer span{color:var(--rust)}
           <li>Built modular Selenium WebDriver, TestNG, and Java frameworks, improving test execution efficiency by 40%.</li>
           <li>Automated REST API testing with Rest Assured and Postman, reducing manual API validation effort by 30%.</li>
           <li>Executed performance load & stress testing using Apache JMeter and security vulnerability assessments using OWASP ZAP.</li>
-          <li>Automated dynamic PDF document validation using Java & Apache PDFBox, cutting post-release defects by 20%.</li>
+          <li>Combined thorough functional/manual validation with automated PDF verification (Apache PDFBox), cutting post-release defects by 20%.</li>
         </ul>
         <div class="exp-tag-row">
-          <span class="exp-tag">Selenium</span><span class="exp-tag">TestNG</span><span class="exp-tag">Apache JMeter</span><span class="exp-tag">OWASP ZAP</span><span class="exp-tag">Apache PDFBox</span><span class="exp-tag">Jenkins</span>
+          <span class="exp-tag">Selenium</span><span class="exp-tag">TestNG</span><span class="exp-tag">Rest Assured</span><span class="exp-tag">Apache JMeter</span><span class="exp-tag">OWASP ZAP</span><span class="exp-tag">Manual QA</span>
         </div>
       </div>
       <div class="exp-bar"></div>
@@ -936,7 +1009,7 @@ footer span{color:var(--rust)}
   <div class="reveal">
     <div class="section-tag">Case Studies</div>
     <h2 class="section-h">Featured Projects</h2>
-    <p class="section-p">Click any project card below to inspect the test architecture, performance benchmarks, and business impact.</p>
+    <p class="section-p">Click any project card below to inspect the end-to-end SDET architecture, tools, and business impact.</p>
   </div>
 
   <div class="proj-grid">
@@ -963,7 +1036,7 @@ footer span{color:var(--rust)}
         <span class="proj-number">02</span>
         <span class="proj-domain">E-Commerce Platform</span>
         <h4>AccuConn Next-Generation</h4>
-        <p>Engineered automated UI and API regression suites to validate new platform capabilities and ensure seamless migration from legacy architecture without downtime.</p>
+        <p>Engineered automated UI and API regression suites alongside functional migration testing to validate new platform capabilities from legacy architecture without downtime.</p>
       </div>
       <div>
         <div class="proj-tech">
@@ -999,7 +1072,7 @@ footer span{color:var(--rust)}
         <span class="proj-number">04</span>
         <span class="proj-domain">Healthcare Insurance</span>
         <h4>CCM Connect Insurance Modules</h4>
-        <p>Conducted functional, API, and JMeter performance testing for healthcare insurance workflows and built an automated PDF validation utility using Java and Apache PDFBox.</p>
+        <p>Executed functional, API, and JMeter performance testing for healthcare insurance workflows and built an automated PDF validation utility using Java and Apache PDFBox.</p>
       </div>
       <div>
         <div class="proj-tech">
@@ -1035,7 +1108,7 @@ footer span{color:var(--rust)}
   <div class="contact-box reveal">
     <div class="section-tag">Connect</div>
     <h2 class="section-h" style="color:var(--cream)">Let's Build Quality<br>At Scale</h2>
-    <p class="section-p">Open to QA Automation Architect roles, performance engineering consulting, or quality strategy discussions.</p>
+    <p class="section-p">Open to Senior SDET / QA Architect roles, automation consulting, or quality engineering discussions.</p>
     <div class="contact-btns">
       <button class="btn btn-rust" onclick="copyEmail()">📋 Copy Email</button>
       <a href="mailto:santhoshpothamshetty@gmail.com" class="btn btn-outline">📧 Send Mail</a>
@@ -1059,7 +1132,7 @@ footer span{color:var(--rust)}
       <p id="mScope"></p>
     </div>
     <div class="modal-sec">
-      <h5>Framework & QA Execution</h5>
+      <h5>SDET Framework & QA Execution</h5>
       <ul id="mBullets"></ul>
     </div>
     <div class="modal-sec">
@@ -1084,7 +1157,6 @@ function updateScrollSpy(){
   progressBar.style.width = scrollPct + '%';
 
   let current = '';
-  // Check if scrolled near bottom of page -> force 'contact' active
   if ((window.innerHeight + scrollTop) >= (document.documentElement.scrollHeight - 80)) {
     current = 'contact';
   } else {
@@ -1106,34 +1178,43 @@ function updateScrollSpy(){
 window.addEventListener('scroll', updateScrollSpy);
 window.addEventListener('load', updateScrollSpy);
 
-/* ── INTERACTIVE TERMINAL TABS ── */
+/* ── INTERACTIVE TERMINAL TABS (ORDERED: AUTOMATION, API, PERF/SEC, MANUAL) ── */
 const termData = {
-  ui: `
+  auto: `
     <div><span class="t-cmd">$ mvn clean test -Dcucumber.filter.tags="@Regression"</span></div>
-    <div class="t-dim">[INFO] Launching Hybrid POM + Cucumber BDD Framework...</div>
+    <div class="t-dim">[INFO] Initializing Hybrid POM + Cucumber BDD Framework...</div>
     <div><span class="t-pass">✔</span> HSBC Loan Recovery E2E <span class="t-dim">(Selenium + Java)</span></div>
-    <div><span class="t-pass">✔</span> Cross-Browser Parallel Suite <span class="t-dim">(Playwright)</span></div>
+    <div><span class="t-pass">✔</span> Modern Cross-Browser Suite <span class="t-dim">(Playwright)</span></div>
     <div><span class="t-pass">✔</span> Dynamic PDF Statement Audit <span class="t-dim">(Apache PDFBox)</span></div>
     <div style="margin-top:.65rem;border-top:1px solid rgba(255,255,255,.08);padding-top:.6rem">
-      <span class="t-warn">BUILD SUCCESS</span> · Pass Rate: <span class="t-pass">100%</span> · CI: <span class="t-cmd">Azure DevOps</span> <span class="t-cursor"></span>
+      <span class="t-warn">BUILD SUCCESS</span> · Execution Speed: <span class="t-pass">+40%</span> · CI: <span class="t-cmd">Azure DevOps</span> <span class="t-cursor"></span>
     </div>`,
   api: `
-    <div><span class="t-cmd">$ mvn test -Dtest=BankingRestAssuredSuite</span></div>
-    <div class="t-dim">[INFO] Validating OAuth2 & Microservice Endpoints...</div>
+    <div><span class="t-cmd">$ mvn test -Dtest=MicroservicesRestAssuredSuite</span></div>
+    <div class="t-dim">[INFO] Validating REST Endpoints, JSON Schemas & SQL DB...</div>
     <div><span class="t-pass">✔</span> POST /api/v1/loan-recovery/schedule <span class="t-dim">(201 Created · 118ms)</span></div>
-    <div><span class="t-pass">✔</span> GET /api/v1/borrower/repayment-ledger <span class="t-dim">(200 OK · JSON Schema)</span></div>
+    <div><span class="t-pass">✔</span> GET /api/v1/borrower/repayment-ledger <span class="t-dim">(200 OK · Verified)</span></div>
     <div><span class="t-pass">✔</span> SQL Integrity Check <span class="t-dim">(DB Records == API Payload)</span></div>
     <div style="margin-top:.65rem;border-top:1px solid rgba(255,255,255,.08);padding-top:.6rem">
       <span class="t-warn">ALL ASSERTIONS PASSED</span> · Manual Effort Saved: <span class="t-pass">30%</span> <span class="t-cursor"></span>
     </div>`,
   perf: `
-    <div><span class="t-cmd">$ jmeter -n -t Ecommerce_Load_500VU.jmx -l results.jtl</span></div>
-    <div class="t-dim">[INFO] Simulating 500 Concurrent Checkout Users + OWASP ZAP...</div>
-    <div><span class="t-pass">✔</span> Avg API Response Time: <span class="t-dim">240ms (SLA < 500ms)</span></div>
-    <div><span class="t-pass">✔</span> Throughput & Error Rate: <span class="t-dim">185 req/s · 0.00% Errors</span></div>
-    <div><span class="t-pass">✔</span> OWASP ZAP Active Scan: <span class="t-dim">0 High / 0 Critical Alerts</span></div>
+    <div><span class="t-cmd">$ jmeter -n -t Ecommerce_Load_500VU.jmx && zap-baseline.py</span></div>
+    <div class="t-dim">[INFO] Running JMeter Concurrency + OWASP ZAP Security Scan...</div>
+    <div><span class="t-pass">✔</span> Avg Response Time: <span class="t-dim">240ms under 500 VUs (0.00% Errors)</span></div>
+    <div><span class="t-pass">✔</span> OWASP ZAP Active Scan: <span class="t-dim">0 High / 0 Critical Vulnerabilities</span></div>
+    <div><span class="t-pass">✔</span> Payment Gateway Auth & Session Hardening <span class="t-dim">(Passed)</span></div>
     <div style="margin-top:.65rem;border-top:1px solid rgba(255,255,255,.08);padding-top:.6rem">
-      <span class="t-warn">PERFORMANCE PASSED</span> · Post-Release Defects: <span class="t-pass">-20%</span> <span class="t-cursor"></span>
+      <span class="t-warn">GATES CLEARED</span> · Post-Release Defects: <span class="t-pass">-20%</span> <span class="t-cursor"></span>
+    </div>`,
+  manual: `
+    <div><span class="t-cmd">$ sprint-signoff --board="Agile-Scrum" --release="v4.2"</span></div>
+    <div class="t-dim">[INFO] Reviewing Exploratory, Smoke & UAT Sign-off Matrix...</div>
+    <div><span class="t-pass">✔</span> Risk-Based Test Scenarios & Edge Cases <span class="t-dim">(100% Executed)</span></div>
+    <div><span class="t-pass">✔</span> Jira Defect Triage & Root Cause Analysis <span class="t-dim">(0 Open Blockers)</span></div>
+    <div><span class="t-pass">✔</span> Cross-Team Product & DevOps Sign-Off <span class="t-dim">(Approved)</span></div>
+    <div style="margin-top:.65rem;border-top:1px solid rgba(255,255,255,.08);padding-top:.6rem">
+      <span class="t-warn">READY FOR PROD</span> · Quality Coverage: <span class="t-pass">End-to-End</span> <span class="t-cursor"></span>
     </div>`
 };
 
@@ -1153,7 +1234,7 @@ const projectsData = [
       "Architected a maintainable Cucumber BDD + Selenium WebDriver framework in Java from scratch.",
       "Automated end-to-end API payloads using Rest Assured & Postman to verify backend microservices.",
       "Executed complex SQL queries to reconcile repayment schedules and borrower state transitions.",
-      "Configured automated CI/CD triggers in Jenkins and Azure DevOps for continuous regression feedback."
+      "Configured automated CI/CD triggers in Jenkins and Azure DevOps alongside functional sprint validation."
     ],
     outcome: "Significantly expanded regression coverage while eliminating manual verification bottlenecks across banking releases."
   },
@@ -1163,7 +1244,7 @@ const projectsData = [
     scope: "Full-scale platform modernization migrating high-traffic e-commerce workflows from legacy architecture to a modern stack.",
     bullets: [
       "Built modular Page Object Model (POM) automation suites using Java, Selenium WebDriver, and TestNG.",
-      "Validated REST API integrations and UI parity between legacy and next-gen modules.",
+      "Conducted functional, sanity, and API parity validation between legacy and next-gen modules.",
       "Integrated parallel test execution into Jenkins pipelines for rapid pull-request validation."
     ],
     outcome: "Improved overall test execution efficiency by 40% and ensured a seamless zero-downtime migration."
@@ -1185,7 +1266,7 @@ const projectsData = [
     scope: "Healthcare insurance platform generating dynamic policy statements, claims documents, and member communications.",
     bullets: [
       "Built a custom Java + Apache PDFBox utility to automatically parse and validate dynamically generated PDF documents.",
-      "Automated REST API regression suites using Postman and Rest Assured.",
+      "Automated REST API regression suites using Postman and Rest Assured alongside functional module testing.",
       "Executed performance benchmarks via Apache JMeter across core insurance claim endpoints."
     ],
     outcome: "Cut manual document and API validation effort by 30% with 100% accuracy on generated policy PDFs."
@@ -1235,7 +1316,7 @@ if(window.matchMedia('(pointer: fine)').matches){
   let mx=0,my=0,cx=0,cy=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;curDot.style.left=mx+'px';curDot.style.top=my+'px'});
   (function anim(){cx+=(mx-cx)*.14;cy+=(my-cy)*.14;cur.style.left=cx+'px';cur.style.top=cy+'px';requestAnimationFrame(anim)})();
-  document.querySelectorAll('a,button,.skill-pill,.proj-card,.metric-box,.graphic-card').forEach(el=>{
+  document.querySelectorAll('a,button,.skill-pill,.proj-card,.metric-box,.pillar-card').forEach(el=>{
     el.addEventListener('mouseenter',()=>cur.classList.add('hover'));
     el.addEventListener('mouseleave',()=>cur.classList.remove('hover'));
   });
